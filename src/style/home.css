@@ -1,0 +1,218 @@
+.home-page {
+  padding-bottom: 2rem;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: center;
+  padding: 2rem 0 4rem;
+  min-height: min(70vh, 640px);
+}
+
+@media (min-width: 768px) {
+  .hero {
+    grid-template-columns: 1.1fr 0.9fr;
+  }
+}
+
+.hero-eyebrow {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 0.75rem;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  line-height: 1.2;
+  margin: 0 0 1rem;
+  color: var(--accent-dark);
+}
+
+.hero-accent {
+  color: var(--accent);
+}
+
+.hero-lead {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  max-width: 520px;
+  margin: 0 0 1.75rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.hero-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 280px;
+}
+
+.hero-orbit {
+  position: relative;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 35%, #fff 0%, transparent 55%),
+    linear-gradient(145deg, rgba(155, 139, 196, 0.35), rgba(107, 91, 149, 0.15));
+  border: 1px solid var(--border);
+  animation: orbit-spin 24s linear infinite;
+}
+
+.orbit-cell {
+  position: absolute;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  margin: -28px 0 0 -28px;
+  box-shadow: var(--shadow);
+}
+
+.orbit-a {
+  --r: 0deg;
+  background: #86efac;
+  transform: rotate(var(--r)) translateX(110px);
+  animation: cell-pulse 3s ease-in-out infinite;
+}
+
+.orbit-b {
+  --r: 120deg;
+  background: #fca5a5;
+  transform: rotate(var(--r)) translateX(110px) scale(0.3);
+  opacity: 0;
+  animation: cell-toggle-b 6s ease-in-out infinite;
+}
+
+.orbit-c {
+  --r: 240deg;
+  background: #93c5fd;
+  transform: rotate(var(--r)) translateX(110px) scale(0.3);
+  opacity: 0;
+  animation: cell-toggle-c 6s ease-in-out infinite;
+}
+
+@keyframes orbit-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes cell-pulse {
+  0%,
+  100% {
+    transform: rotate(var(--r, 0deg)) translateX(110px) scale(1);
+  }
+  50% {
+    transform: rotate(var(--r, 0deg)) translateX(110px) scale(1.08);
+  }
+}
+
+/* 두 번째 셀: 첫 셀 다음으로 등장하고, 셋째 셀보다 늦게 사라짐 */
+@keyframes cell-toggle-b {
+  0%,
+  100% {
+    opacity: 0;
+    transform: rotate(var(--r)) translateX(110px) scale(0.3);
+  }
+  20%,
+  80% {
+    opacity: 1;
+    transform: rotate(var(--r)) translateX(110px) scale(1);
+  }
+  95% {
+    opacity: 0;
+    transform: rotate(var(--r)) translateX(110px) scale(0.3);
+  }
+}
+
+/* 세 번째 셀: 가장 늦게 등장하고, 가장 먼저 사라짐 */
+@keyframes cell-toggle-c {
+  0%,
+  100% {
+    opacity: 0;
+    transform: rotate(var(--r)) translateX(110px) scale(0.3);
+  }
+  40%,
+  60% {
+    opacity: 1;
+    transform: rotate(var(--r)) translateX(110px) scale(1);
+  }
+  75% {
+    opacity: 0;
+    transform: rotate(var(--r)) translateX(110px) scale(0.3);
+  }
+}
+
+.features {
+  padding: 3rem 0;
+}
+
+.feature-grid {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+@media (min-width: 768px) {
+  .feature-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.feature-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+.feature-num {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent-light);
+  letter-spacing: 0.05em;
+}
+
+.feature-card h3 {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+  color: var(--accent-dark);
+}
+
+.feature-card p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.cta-band {
+  text-align: center;
+  padding: 3.5rem 1.5rem;
+  margin-top: 2rem;
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.cta-band h2 {
+  margin: 0 0 0.5rem;
+  color: var(--accent-dark);
+}
+
+.cta-band p {
+  color: var(--text-muted);
+  margin: 0 0 1.5rem;
+}
