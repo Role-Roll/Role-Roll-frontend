@@ -186,7 +186,7 @@ export async function predictImage(modelId, imageFile) {
 
   {/* 아두이노 사용할 떄, 1로 바꿔야 함 */}
   if (model.family === 'CNN') {
-    params.set('use_arduino', '0');
+    params.set('use_arduino', '1');
   }
 
   const url = `${API_BASE}${path}?${params.toString()}`;
