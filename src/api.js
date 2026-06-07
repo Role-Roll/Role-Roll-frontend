@@ -184,8 +184,9 @@ export async function predictImage(modelId, imageFile) {
   params.set('conf', String(model.defaultThreshold ?? 0.25));
   params.set('nms', String(model.defaultNms ?? 0.5));
 
+  {/* 아두이노 사용할 떄, 1로 바꿔야 함 */}
   if (model.family === 'CNN') {
-    params.set('use_arduino', '1');
+    params.set('use_arduino', '0');
   }
 
   const url = `${API_BASE}${path}?${params.toString()}`;
