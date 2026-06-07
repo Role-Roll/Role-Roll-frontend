@@ -1,0 +1,22 @@
+import { Routes, Route } from 'react-router-dom';
+import Header from './components/Header.jsx';
+import Footer from './components/Footer.jsx';
+import Home from './pages/Home.jsx';
+import Blood from './pages/Blood.jsx';
+
+function App() {
+  return (
+    <div className="app-shell">
+      <Header />
+      <main className="app-main">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/analyze" element={<Blood />} />
+        </Routes>
+      </main>
+      <Footer />
+    </div>
+  );
+}
+
+export default App;

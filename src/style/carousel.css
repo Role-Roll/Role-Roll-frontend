@@ -1,0 +1,153 @@
+.carousel-section {
+  padding: 3rem 0 4rem;
+}
+
+.carousel {
+  overflow: hidden;
+  max-width: 960px;
+  margin: 0 auto 1.5rem;
+  padding: 2rem 0;
+}
+
+.carousel-container {
+  display: flex;
+  align-items: center;
+}
+
+.carousel-slide {
+  flex: 0 0 42%;
+  min-width: 0;
+  padding: 0 0.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.carousel-card {
+  width: 100%;
+  max-width: 360px;
+  height: 240px;
+  opacity: 0.5;
+  transform: scale(0.78);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.carousel-card.is-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+@media (max-width: 600px) {
+  .carousel-slide {
+    flex: 0 0 62%;
+  }
+
+  .carousel-card {
+    transform: scale(0.82);
+  }
+
+  .carousel-card.is-active {
+    transform: scale(1);
+  }
+}
+
+.card-face {
+  width: 100%;
+  height: 100%;
+  padding: 1.25rem 1.5rem;
+  background: var(--surface-solid);
+  border: 2px solid var(--accent, var(--border));
+  border-color: color-mix(in srgb, var(--accent) 55%, var(--border));
+  border-radius: 4px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.card-tag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  margin-bottom: 0.35rem;
+}
+
+.card-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 0.5rem;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.card-face h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1rem;
+  color: var(--accent-dark);
+  line-height: 1.3;
+}
+
+.card-face p {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+  flex: 1;
+  overflow: hidden;
+}
+
+.carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.carousel-controls > button:first-child,
+.carousel-controls > button:last-child {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface-solid);
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--accent-dark);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.carousel-controls > button:hover {
+  background: #fff;
+}
+
+.carousel-dots {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.carousel-dots button {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background: var(--accent-light);
+  opacity: 0.4;
+  cursor: pointer;
+  padding: 0;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.carousel-dots button.active {
+  opacity: 1;
+  transform: scale(1.2);
+  background: var(--accent);
+}
+
+@media (max-width: 600px) {
+  .carousel-card {
+    height: 210px;
+  }
+}
