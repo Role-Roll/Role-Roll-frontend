@@ -99,7 +99,7 @@ function Home() {
               <br />
               결과는 색상별 bounding box와 
               <br />
-              요약 리포트로 제공됩니다.
+              아두이노로 확인 가능합니다.
             </p>
           </article>
         </div>
